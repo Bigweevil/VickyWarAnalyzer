@@ -1,5 +1,9 @@
 # Victoria II war analyzer
 
+Original Creator: TkaseKamp
+
+Editors: CSCMe (total casualties column), Bigweevil
+
 Or the full name Victoria II save game war analyzer. Naming stuff is hard.
 
 Paradox forum thread: [link](https://forum.paradoxplaza.com/forum/index.php?threads/tool-victoria-ii-save-game-war-analyzer.689055/)
@@ -24,6 +28,8 @@ This analyzer is NOT a fully-fledged save game analyzer. It does one thing and d
 5. Click "Read file" and see how terrible your wars have been. 
 6. The analyzer will create a file called "paths.txt" in the jar directory. This stores the path to the last used save game directory.
 
+If you're having issues with the .jar file opening, "open with" "javaw" in your file directory. 
+
 ### Screenshots
 All wars tab:
 ![alt text](http://i.imgur.com/pldQN5y.png "All wars tab")
@@ -44,6 +50,8 @@ Wargoals tab:
 
 * The analyzer will only show country names and flags for HoD vanilla countries.
 
+* If 1 side in a battle has over 6.42 million casualties, integer overflow will occur twice, making the values incorrect to what actually occured. This is a limitation of Victoria 2 saves and cannot be fixed in the war analyzer.
+
 ## Tools
 * Java 8
 * JavaFX
@@ -56,6 +64,9 @@ If you really want to build your own version of this then go right ahead. I'm go
 1. Download this repository
 2. Run `mvn install` in the base directory. Everything should install without problems.
 3. Run `mvn jfx:jar` to compile it into a jar. The result an be found in `target/jfx/app`.
+
+Note, if you see an error with "packager", install an older version of jfx, I specifically used jfx 8.
+
 4. Use `mvn eclipse:eclipse` to generate the project files for Eclipse. You might also need the m2e Eclipse plugin.
 
 ### Code 
