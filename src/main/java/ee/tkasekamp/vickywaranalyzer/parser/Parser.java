@@ -285,6 +285,10 @@ public class Parser {
 		} else if (line.startsWith("losses")) {
 			line = nameExtractor(line, 7, false);
 			int losses = Integer.parseInt(line);
+			if (losses < 0){
+				//If integer overflow occurs, adjust to proper value (Doesn't work for extreme overflow (greater than ~6.42mil casualties))
+				losses = losses + (2*2147483);
+			}
 			if (attackerDefender) {
 				/* If this point is reached all data about the attackers units will have been processed. 
 				 * Unit list added to battle and cleared
